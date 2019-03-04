@@ -29,5 +29,10 @@ npm run test
 npm run lint
 ```
 
+## GUI for VUE-App
+```
+vue ui
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
