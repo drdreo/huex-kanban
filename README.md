@@ -1,5 +1,9 @@
 # huex-kanban
 
+We create a kanban board using Vue.js.
+Developed by Andreas Hahn, David Holzmann and Rafael Schrenk.
+
+
 ## Project setup
 ```
 npm install
