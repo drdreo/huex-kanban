@@ -1,17 +1,19 @@
 <template>
     <div id="app">
         <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <Task title="Auto waschen" description="Das Auto ist dreckig und muss gewaschen werden!" active="false"></Task>
     </div>
 </template>
 
 <script>
     import HelloWorld from './components/HelloWorld.vue';
+    import Task from './components/task/Task';
 
     export default {
         name: 'app',
         components: {
-            HelloWorld
+            HelloWorld,
+            Task
         }
     };
 </script>
