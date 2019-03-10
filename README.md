@@ -1,6 +1,7 @@
 # huex-kanban
 
 We create a kanban board using Vue.js.
+Editable task cards and categories. Changelog page.
 Developed by Andreas Hahn, David Holzmann and Rafael Schrenk.
 
 
