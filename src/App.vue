@@ -7,11 +7,9 @@
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
     import VueRouter from "vue-router";
-    import Vuex from "vuex";
-    import ProjectView from "@/pages/ProjectView.vue";
     import HelloWorld from "@/components/HelloWorld.vue";
-
-    Vue.use(Vuex);
+    import ProjectView from "@/pages/ProjectView/ProjectView.vue";
+    import store from '@/store';
 
     Vue.use(VueRouter);
 
@@ -30,7 +28,8 @@
         components: {
             ProjectView,
         },
-        router
+        router,
+        store
     })
     export default class App extends Vue {
     }

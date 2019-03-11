@@ -29,10 +29,10 @@
     @Component
     export default class Project extends Vue {
         @Prop()
-        private id!: number;
+        id!: number;
 
         @Prop()
-        private name!: string;
+        name!: string;
     }
 </script>
 
