@@ -1,18 +1,16 @@
 <template>
     <div id="app">
         <img alt="Vue logo" src="./assets/logo.png">
-        <Task title="Auto waschen" description="Das Auto ist dreckig und muss gewaschen werden!" active="false"></Task>
+        <Task title="Auto waschen" description="Das Auto ist dreckig und muss gewaschen werden!" active="true"></Task>
     </div>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld.vue';
     import Task from './components/task/Task';
 
     export default {
         name: 'app',
         components: {
-            HelloWorld,
             Task
         }
     };

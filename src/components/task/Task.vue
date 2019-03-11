@@ -2,7 +2,9 @@
     <div class="task">
         <h2>{{ title }}</h2>
         <p>{{description}}</p>
-        <input type="checkbox" v-model="active">
+        <button v-if="active" @click="toggleActive()">Done!</button>
+        <button v-if="!active" @click="toggleActive()">Activate!</button>
+        <span>Task is active? {{active}}</span>
     </div>
 </template>
 
@@ -13,6 +15,11 @@
             title: String,
             description: String,
             active: Boolean,
+        },
+        methods: {
+            toggleActive() {
+                this.active = !this.active;
+            }
         }
     };
 </script>
