@@ -1,28 +1,54 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <Task title="Auto waschen" description="Das Auto ist dreckig und muss gewaschen werden!" active="true"></Task>
+        <router-view></router-view>
     </div>
 </template>
 
-<script>
-    import Task from './components/task/Task';
+<script lang="ts">
+    import {Component, Vue} from "vue-property-decorator";
+    import VueRouter from "vue-router";
 
-    export default {
-        name: 'app',
+    import ProjectView from "@/pages/ProjectView.vue";
+
+    Vue.use(VueRouter);
+
+    const routes = [
+        {path: "/", component: ProjectView},
+        {path: "/project/:id/board", name: "board", props: true, component: ProjectView},
+        {path: "/project/:id/changelog", name: "changelog", props: true, component: ProjectView}
+
+    ];
+
+    const router = new VueRouter({
+        routes
+    });
+
+    @Component({
         components: {
-            Task
-        }
-    };
+            ProjectView,
+        },
+        router
+    })
+    export default class App extends Vue {
+    }
 </script>
 
 <style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
+
+    *, body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
+
+    html {
+        background: #E2E2E2;
+    }
+
+    #app {
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(to bottom, #E2E2E2, #C9D6FF);
+    }
+
 </style>

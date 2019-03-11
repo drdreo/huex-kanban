@@ -1,0 +1,35 @@
+.project-view {
+  height: 100%;
+  padding: 1em;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: ". . ." ". . ." ". . .";
+  grid-gap: 1em;
+
+  &__project_create {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 50px;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+    }
+
+    input {
+      background-color: transparent;
+      border: 1px solid gray;
+      border-radius: 5px;
+
+      line-height: 1.5rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+  }
+}
