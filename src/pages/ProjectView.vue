@@ -1,7 +1,7 @@
 <template>
     <div class="project-view">
         <Project :key="project.id" :id="project.id" :name="project.name" v-for="project in projects"></Project>
-        <div class="project-view__project_create">
+        <div class="project-view__project_create" @click="createProject">
             <input v-model.trim="newProjectName"/>
             <span>+</span>
         </div>
@@ -33,8 +33,11 @@
             }
         ];
 
-        @Prop()
-        private newProjectName!: string;
+        private newProjectName = "";
+
+        createProject() {
+            console.log(this.newProjectName);
+        }
     }
 </script>
 

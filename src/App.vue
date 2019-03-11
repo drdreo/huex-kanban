@@ -7,15 +7,18 @@
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
     import VueRouter from "vue-router";
-
+    import Vuex from "vuex";
     import ProjectView from "@/pages/ProjectView.vue";
+    import HelloWorld from "@/components/HelloWorld.vue";
+
+    Vue.use(Vuex);
 
     Vue.use(VueRouter);
 
     const routes = [
         {path: "/", component: ProjectView},
-        {path: "/project/:id/board", name: "board", props: true, component: ProjectView},
-        {path: "/project/:id/changelog", name: "changelog", props: true, component: ProjectView}
+        {path: "/project/:id/board", name: "board", props: true, component: HelloWorld},
+        {path: "/project/:id/changelog", name: "changelog", props: true, component: HelloWorld}
 
     ];
 

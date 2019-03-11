@@ -5,6 +5,6 @@ describe('App.vue', () => {
     const wrapper = shallowMount(App);
 
     it('has a button', () => {
-        expect(wrapper.contains('img')).toBe(true);
+        expect(wrapper.isVueInstance()).toBe(true);
     });
 });
