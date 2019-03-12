@@ -37,11 +37,12 @@ $txt-color: #DCE3E7;
     display: flex;
     justify-content: flex-end;
 
-    width: 10px;
-    height:10px;
+    font-family: Arial, serif;
+    margin: 5px;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
+      color: white;
     }
   }
 }
