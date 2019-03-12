@@ -1,6 +1,8 @@
 <template>
-    <router-link :to="{name: 'board', params: { id } }" tag="div">
-        <div class="blog-card spring-fever">
+    <div class="card">
+        <div class="card-remove" @click="removeProject">X</div>
+        <router-link :to="{name: 'board', params: { id } }" tag="div" class="card-router">
+
             <div class="title-content">
                 <h3>{{name}}</h3>
             </div>
@@ -8,23 +10,24 @@
             <div class="card-info">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim.
-            </div><!-- /.card-info -->
+            </div>
             <div class="utility-info">
                 <ul class="utility-list">
                     <li class="comments">12</li>
                     <li class="date">03.12.2015</li>
                 </ul>
-            </div><!-- /.utility-info -->
-            <!-- overlays -->
+            </div>
             <div class="gradient-overlay"></div>
             <div class="color-overlay"></div>
-        </div><!-- /.blog-card -->
+        </router-link>
 
-    </router-link>
+    </div>
+
 </template>
 
 <script lang="ts">
     import {Component, Prop, Vue} from "vue-property-decorator";
+    import {Action} from "vuex-class";
 
     @Component
     export default class Project extends Vue {
@@ -33,6 +36,13 @@
 
         @Prop()
         name!: string;
+
+        @Action("deleteProject") deleteProject: any;
+
+        removeProject() {
+            this.deleteProject(this);
+        }
+
     }
 </script>
 

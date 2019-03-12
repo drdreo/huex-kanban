@@ -23,7 +23,6 @@
 
         @State kanban!: ProjectsState;
         @Action("createProject") createProject: any;
-        @Action("deleteProject") deleteProject: any;
 
         private newProjectName = "";
 

@@ -8,6 +8,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
         commit('createProject', payload);
     },
     deleteProject({commit}, payload): any {
+        console.log('delete: ', payload);
         commit('deleteProject', payload);
     }
 };
