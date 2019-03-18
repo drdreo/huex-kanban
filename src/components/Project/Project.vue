@@ -13,8 +13,7 @@
             </div>
             <div class="utility-info">
                 <ul class="utility-list">
-                    <li class="comments">12</li>
-                    <li class="date">03.12.2015</li>
+                    <li class="tasks">{{tasks.length}}</li>
                 </ul>
             </div>
             <div class="gradient-overlay"></div>
@@ -32,10 +31,13 @@
     @Component
     export default class Project extends Vue {
         @Prop()
-        id!: number;
+        id!: string;
 
         @Prop()
         name!: string;
+
+        @Prop()
+        tasks!: any[];
 
         @Action("deleteProject") deleteProject: any;
 

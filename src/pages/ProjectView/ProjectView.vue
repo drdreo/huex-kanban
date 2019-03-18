@@ -1,6 +1,7 @@
 <template>
     <div class="project-view">
-        <Project :key="project.id" :id="project.id" :name="project.name" v-for="project in kanban.projects"></Project>
+        <Project :key="project.id" :id="project.id" :name="project.name" :tasks="project.tasks"
+                 v-for="project in kanban.projects"></Project>
         <div class="project-view__project_create">
             <input v-model.trim="newProjectName"/>
             <span @click="createNewProject">+</span>
@@ -14,8 +15,6 @@
     import Project from "@/components/Project/Project.vue";
     import {ProjectsState} from "@/pages/ProjectView/projects";
 
-    let uid = 0;
-
     @Component({
         components: {Project}
     })
@@ -23,16 +22,17 @@
 
         @State kanban!: ProjectsState;
         @Action("createProject") createProject: any;
+        @Action("getProjects") getProjects: any;
 
         private newProjectName = "";
 
-        createNewProject() {
-            this.createProject({id: uid++, name: this.newProjectName});
-            this.newProjectName = "";
+
+        created() {
+            this.getProjects();
         }
 
-        deleteExistingProject() {
-            this.createProject({id: uid++, name: this.newProjectName});
+        createNewProject() {
+            this.createProject({name: this.newProjectName});
             this.newProjectName = "";
         }
     }
