@@ -6,7 +6,10 @@ export const mutations: MutationTree<ProjectsState> = {
     createProject(state, payload: Project) {
         state.projects = [...state.projects, payload];
     },
-    deleteProject(state, payload: Project) {
-        state.projects = [...state.projects.filter(project => project.id === payload.id)];
+    setProjects(state, payload: Project[]) {
+        state.projects = payload;
+    },
+    deleteProject(state, projectId: string) {
+        state.projects = [...state.projects.filter(project => project.id !== projectId)];
     }
 };

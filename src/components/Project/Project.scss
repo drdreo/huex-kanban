@@ -87,12 +87,9 @@ hr {
     color: $txt-color;
     font-family: 'Roboto', sans-serif;
 
-    &.comments {
-      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 .1em;
-    }
-
-    &.date {
-      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 .1em;
+    &.tasks {
+      background: url(https://img.icons8.com/ios-glyphs/24/000000/task.png) no-repeat ;
+      background-size: contain;
     }
   }
 }

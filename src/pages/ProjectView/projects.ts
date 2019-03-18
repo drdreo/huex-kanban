@@ -5,8 +5,9 @@ import {mutations} from './mutations';
 import {RootState} from '@/store';
 
 export interface Project {
-    id: number;
+    id: string;
     name: string;
+    tasks: any[];
 }
 
 export interface ProjectsState {
