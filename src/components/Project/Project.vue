@@ -16,8 +16,6 @@
                     <li class="tasks">{{tasks.length}}</li>
                 </ul>
             </div>
-            <div class="gradient-overlay"></div>
-            <div class="color-overlay"></div>
         </router-link>
 
     </div>

@@ -4,11 +4,20 @@ $yellow: #D0BB57;
   height: 100%;
   padding: 1em;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: ". . ." ". . ." ". . .";
-  grid-gap: 1em;
+  &__header {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: ". . ." ". . ." ". . .";
+    grid-gap: 1em;
+  }
 
   &__project_create {
 

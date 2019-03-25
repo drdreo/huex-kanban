@@ -4,14 +4,21 @@ import Project from '@/components/Project/Project.vue';
 describe('Project.vue', () => {
     const wrapper = shallowMount(Project, {
         propsData: {
-            name: 'test-project'
+            id: '1',
+            name: 'test-project',
+            tasks: [{test: 'test'}]
+
         },
         stubs: {
             RouterLink: RouterLinkStub
         }
     });
 
-    it('has name in heading', () => {
-        expect(wrapper.find("h3").text()).toBe("test-project");
+    it('has name in title', () => {
+        expect(wrapper.find('.title-content').text()).toBe('test-project');
+    });
+
+    it('has amount of tasks icon', () => {
+        expect(wrapper.find('.tasks').text()).toBe('1');
     });
 });

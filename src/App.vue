@@ -9,7 +9,7 @@
     import VueRouter from "vue-router";
     import HelloWorld from "@/components/HelloWorld.vue";
     import ProjectView from "@/pages/ProjectView/ProjectView.vue";
-    import store from '@/store';
+    import store from "@/store";
 
     Vue.use(VueRouter);
 
@@ -50,7 +50,8 @@
     #app {
         height: 100vh;
         width: 100vw;
-        background: linear-gradient(to bottom, #E2E2E2, #C9D6FF);
+        /*background: linear-gradient(to bottom, #E2E2E2, #C9D6FF);*/
+        background-color: #ebeaf1;
     }
 
 </style>

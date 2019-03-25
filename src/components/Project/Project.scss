@@ -1,6 +1,6 @@
-$project-name-color: white;
+$project-name-color: #222;
 $yellow: #D0BB57;
-$txt-color: #DCE3E7;
+$txt-color: #222;
 
 
 .card {
@@ -12,8 +12,9 @@ $txt-color: #DCE3E7;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
   text-align: center;
 
-  background: url(https://cdn-images-1.medium.com/max/1600/0*I-sI3u34g0ydRqyA) no-repeat center center;
-  background-size: cover;
+  background-color: #eeeeee;
+  //background: url(https://cdn-images-1.medium.com/max/1600/0*I-sI3u34g0ydRqyA) no-repeat center center;
+  //background-size: cover;
 
   &-router:hover {
     cursor: pointer;
@@ -42,7 +43,7 @@ $txt-color: #DCE3E7;
 
     &:hover {
       cursor: pointer;
-      color: white;
+      color: #ca2027;
     }
   }
 }
