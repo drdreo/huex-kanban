@@ -4,7 +4,7 @@ import App from '@/App.vue';
 describe('App.vue', () => {
     const wrapper = shallowMount(App);
 
-    it('has a button', () => {
+    it('is a vue instance', () => {
         expect(wrapper.isVueInstance()).toBe(true);
     });
 });

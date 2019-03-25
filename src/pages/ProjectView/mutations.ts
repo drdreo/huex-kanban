@@ -4,9 +4,11 @@ import {ProjectsState} from '@/pages/ProjectView/projects';
 
 export const mutations: MutationTree<ProjectsState> = {
     createProject(state, payload: Project) {
+        // @ts-ignore
         state.projects = [...state.projects, payload];
     },
     setProjects(state, payload: Project[]) {
+        // @ts-ignore
         state.projects = payload;
     },
     deleteProject(state, projectId: string) {

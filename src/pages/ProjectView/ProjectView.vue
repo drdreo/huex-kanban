@@ -1,10 +1,14 @@
 <template>
     <div class="project-view">
-        <Project :key="project.id" :id="project.id" :name="project.name" :tasks="project.tasks"
-                 v-for="project in kanban.projects"></Project>
-        <div class="project-view__project_create">
-            <input v-model.trim="newProjectName"/>
-            <span @click="createNewProject">+</span>
+        <h1 class="project-view__header">Project Overview</h1>
+
+        <div class="project-view__container">
+            <Project :key="project.id" :id="project.id" :name="project.name" :tasks="project.tasks"
+                     v-for="project in kanban.projects"></Project>
+            <div class="project-view__project_create">
+                <input v-model.trim="newProjectName" placeholder="Project Name"/>
+                <span @click="createNewProject">+</span>
+            </div>
         </div>
     </div>
 </template>
