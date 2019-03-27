@@ -10,13 +10,14 @@
     import HelloWorld from "@/components/HelloWorld.vue";
     import ProjectView from "@/pages/ProjectView/ProjectView.vue";
     import store from "@/store";
+    import ChangeLogView from "@/pages/ChangeLogView/ChangeLogView.vue";
 
     Vue.use(VueRouter);
 
     const routes = [
         {path: "/", component: ProjectView},
         {path: "/project/:id/board", name: "board", props: true, component: HelloWorld},
-        {path: "/project/:id/changelog", name: "changelog", props: true, component: HelloWorld}
+        {path: "/project/:id/changelog", name: "changelog", props: true, component: ChangeLogView}
 
     ];
 
