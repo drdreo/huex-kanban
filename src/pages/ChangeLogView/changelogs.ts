@@ -1,23 +1,29 @@
 import {Module} from 'vuex';
-
 import {actions} from './actions';
 import {mutations} from './mutations';
 import {RootState} from '@/store';
 
 export interface ChangeLog {
-    id: string;
-    name: string;
-    tasks: any[];
+    projectId: string;
+    projectName: string;
+    changes: Change[];
+}
+
+export interface Change {
+    id: number;
+    actionType: string;
+    object1: string;
+    object2?: string;
+    created: string;
 }
 
 export interface ChangeLogState {
-    projects: ChangeLog[];
+    changes: Change[];
 }
 
 export const state: ChangeLogState = {
-    projects: []
+    changes: []
 };
-
 
 export const changelogs: Module<ChangeLogState, RootState> = {
     state,
