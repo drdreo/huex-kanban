@@ -4,7 +4,7 @@
 
         <div class="project-view__container">
             <Project :key="project.id" :id="project.id" :name="project.name" :tasks="project.tasks"
-                     v-for="project in kanban.projects"></Project>
+                     v-for="project in projects.projects"></Project>
             <div class="project-view__project_create">
                 <input v-model.trim="newProjectName" placeholder="Project Name"/>
                 <span @click="createNewProject">+</span>
@@ -24,7 +24,7 @@
     })
     export default class ProjectView extends Vue {
 
-        @State kanban!: ProjectsState;
+        @State projects!: ProjectsState;
         @Action("createProject") createProject: any;
         @Action("getProjects") getProjects: any;
 

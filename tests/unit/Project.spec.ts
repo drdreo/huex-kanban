@@ -30,7 +30,7 @@ describe('Project.vue', () => {
         store = new Vuex.Store({
             //@ts-ignore
             modules: {
-                kanban: {
+                projects: {
                     state,
                     actions
                 }

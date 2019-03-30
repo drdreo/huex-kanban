@@ -2,6 +2,7 @@ import {Vue} from 'vue-property-decorator';
 
 import Vuex, {StoreOptions} from 'vuex';
 import {projects} from '@/pages/ProjectView/projects';
+import {changelogs} from '@/pages/ChangeLogView/changelogs';
 
 Vue.use(Vuex);
 
@@ -14,7 +15,8 @@ const store: StoreOptions<RootState> = {
         version: '1.0.0'
     },
     modules: {
-        kanban: projects
+        projects,
+        changelog: changelogs
     }
 };
 
