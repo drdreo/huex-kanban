@@ -5,9 +5,11 @@
             <input v-model.trim="newTaskDescription" placeholder="Task Description"/>
             <button @click="doCreateTask">Add Task</button>
         </div>
-        <Column :tasks="filterTasksByState(1)" :name="'To-Do'"></Column>
-        <Column :tasks="filterTasksByState(2)" :name="'In Progress'"></Column>
-        <Column :tasks="filterTasksByState(3)" :name="'Done'"></Column>
+        <div class="tasks-view__column-area">
+            <Column :tasks="filterTasksByState(1)" :name="'To-Do'"></Column>
+            <Column :tasks="filterTasksByState(2)" :name="'In Progress'"></Column>
+            <Column :tasks="filterTasksByState(3)" :name="'Done'"></Column>
+        </div>
     </div>
 </template>
 

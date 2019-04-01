@@ -1,15 +1,19 @@
 <template>
     <div class="task">
-        <h2>{{ name }}</h2>
+        <div class="task__header">
+            <button class="move-button" v-if="state > 1" @click="doUpdateTaskState(-1)">&#8678;</button>
+            <h3>{{ name }}</h3>
+            <button v-if="state < 3" @click="doUpdateTaskState(1)">&#8680;</button>
+        </div>
+        <hr class="separator-line">
         <p>{{description}}</p>
-        <p>State: {{state}}</p>
-        <button @click="doDeleteTask">ZERSTÖREN!!!</button>
+        <button class="delete-button" @click="doDeleteTask">&#10006; Delete</button>
     </div>
 </template>
 
 <script lang="ts">
     import {Component, Prop, Vue} from "vue-property-decorator";
-    import {State, Action} from "vuex-class";
+    import {Action} from "vuex-class";
 
     @Component({})
     export default class Task extends Vue {
@@ -20,9 +24,15 @@
         @Prop() project!: string;
 
         @Action("deleteTask") deleteTask: any;
+        @Action("updateTaskState") updateTaskState: any;
 
         doDeleteTask() {
             this.deleteTask(this);
+        }
+
+        doUpdateTaskState(value: number) {
+            //this.state += value;
+            //this.updateTaskState(this);
         }
     }
 </script>

@@ -63,5 +63,15 @@ export const actions: ActionTree<TasksState, RootState> = {
       `,
         });
         commit('deleteTask', response.data.deleteTask.id);
+    },
+
+    async updateTaskState({commit}, payload) {
+        const response = await graphqlClient.mutate({
+            mutation: gql`
+            mutation {
+                updateTaskState(where: {id: "${payload.id}"})
+            }
+            `,
+        });
     }
 };

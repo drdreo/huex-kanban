@@ -1,0 +1,26 @@
+.task {
+  background-color: #eeeeee;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+
+  &__header {
+    display: flex;
+  }
+}
+
+.task__header {
+  display: flex;
+}
+
+.delete-button {
+  &:hover {
+    background-color: #ca2027;
+  }
+}
+
+.separator-line {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
