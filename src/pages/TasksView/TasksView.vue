@@ -1,8 +1,13 @@
 <template>
     <div class="tasks-view">
-        <Column :tasks="this.tasks.tasks.filter(task => task.state == 1)" :name="'To-Do'"></Column>
-        <Column :tasks="this.tasks.tasks.filter(task => task.state == 2)" :name="'In Progress'"></Column>
-        <Column :tasks="this.tasks.tasks.filter(task => task.state == 3)" :name="'Done'"></Column>
+        <div class="tasks-view__task-create">
+            <input v-model.trim="newTaskName" placeholder="Task Name"/>
+            <input v-model.trim="newTaskDescription" placeholder="Task Description"/>
+            <button @click="doCreateTask">Add Task</button>
+        </div>
+        <Column :tasks="filterTasksByState(1)" :name="'To-Do'"></Column>
+        <Column :tasks="filterTasksByState(2)" :name="'In Progress'"></Column>
+        <Column :tasks="filterTasksByState(3)" :name="'Done'"></Column>
     </div>
 </template>
 
@@ -18,17 +23,32 @@
     export default class TasksView extends Vue {
         @State tasks!: TasksState;
         @Action("getTasks") getTasks: any;
-        //@Action("createTask") createTask: any;
+        @Action("createTask") createTask: any;
 
         private projectId!: string;
+        private newTaskName = '';
+        private newTaskDescription = '';
 
         created() {
             this.projectId = this.$route.params.id;
             this.getTasks();
         }
+        
+        filterTasksByState(state: number) {
+            return this.tasks.tasks.filter(task => task.state === state);
+        }
 
         doCreateTask() {
-
+            if (this.newTaskName && this.newTaskDescription) {
+                this.createTask({
+                    name: this.newTaskName,
+                    description: this.newTaskDescription,
+                    state: 1,
+                    project: this.projectId
+                });
+                this.newTaskName = '';
+                this.newTaskDescription = '';
+            }
         }
     }
 </script>

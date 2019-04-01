@@ -2,7 +2,7 @@
     <div class="board-column">
         <h3 class="column-title">{{name}}</h3>
         <div class="task-area" >
-            <Task v-for="task in tasks" :key="task.id" :name="task.name" :description="task.description"
+            <Task v-for="task in tasks" :key="task.id" :id="task.id" :name="task.name" :description="task.description"
                   :state="task.state"></Task>
         </div>
     </div>

@@ -6,8 +6,29 @@ import gql from 'graphql-tag';
 import graphqlClient from '../../apollo';
 
 export const actions: ActionTree<TasksState, RootState> = {
-    async getTasks({commit}) {
+    async createTask({commit}, payload) {
+        const response = await graphqlClient.mutate({
+            mutation: gql`
+               mutation {
+                  createTask(data: {name: "${payload.name}",
+                  description: "${payload.description}", state: ${payload.state}, project: {
+                    connect: { id: "${payload.project}" }
+                    }}) {                  
+                      id
+                      name
+                      description
+                      state
+                      project {
+                        id
+                      }    
+                  }
+               }
+      `,
+        });
+        commit('createTask', response.data.createTask);
+    },
 
+    async getTasks({commit}) {
         const response = await graphqlClient.query({
             query: gql`
        {
@@ -21,10 +42,22 @@ export const actions: ActionTree<TasksState, RootState> = {
             }
           }
        }
-
       `,
         });
-
         commit('setTasks', response.data.tasks);
     },
+
+    async deleteTask({commit}, payload) {
+        console.log(payload);
+        const response = await graphqlClient.mutate({
+            mutation: gql`
+            mutation {
+              deleteTask(where: {id: "${payload.id}"}) {
+                id
+              }
+            }
+      `,
+        });
+        commit('deleteTask', response.data.deleteTask.id);
+    }
 };

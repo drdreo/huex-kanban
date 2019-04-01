@@ -9,7 +9,7 @@ export interface Task {
     name: string;
     description: string;
     state: number;
-    project: string;
+    project: any;
 }
 
 export interface TasksState {
