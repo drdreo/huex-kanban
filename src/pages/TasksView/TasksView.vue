@@ -1,8 +1,8 @@
 <template>
     <div class="tasks-view">
-        <Column :tasks="this.tasks" :name="'To-Do'"></Column>
-        <Column :tasks="this.tasks" :name="'In Progress'"></Column>
-        <Column :tasks="this.tasks" :name="'Done'"></Column>
+        <Column :tasks="this.tasks.tasks.filter(task => task.state == 1)" :name="'To-Do'"></Column>
+        <Column :tasks="this.tasks.tasks.filter(task => task.state == 2)" :name="'In Progress'"></Column>
+        <Column :tasks="this.tasks.tasks.filter(task => task.state == 3)" :name="'Done'"></Column>
     </div>
 </template>
 
@@ -25,7 +25,6 @@
         created() {
             this.projectId = this.$route.params.id;
             this.getTasks();
-            console.log(this.tasks);
         }
 
         doCreateTask() {
