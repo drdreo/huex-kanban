@@ -31,7 +31,7 @@
 
         created() {
             this.projectId = this.$route.params.id;
-            this.getTasks();
+            this.getTasks(this.projectId);
         }
         
         filterTasksByState(state: number) {

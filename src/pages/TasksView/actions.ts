@@ -28,11 +28,16 @@ export const actions: ActionTree<TasksState, RootState> = {
         commit('createTask', response.data.createTask);
     },
 
-    async getTasks({commit}) {
+    async getTasks({commit}, payload) {
         const response = await graphqlClient.query({
             query: gql`
        {
-          tasks {
+          tasks(where: {
+            project: {
+                id: "${payload}"
+            }
+          }) 
+          {
             id
             name
             description
@@ -48,7 +53,6 @@ export const actions: ActionTree<TasksState, RootState> = {
     },
 
     async deleteTask({commit}, payload) {
-        console.log(payload);
         const response = await graphqlClient.mutate({
             mutation: gql`
             mutation {
