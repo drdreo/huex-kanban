@@ -15,11 +15,11 @@ export const mutations: MutationTree<TasksState> = {
         state.tasks = [...state.tasks.filter(task => task.id !== taskId)];
     },
     /*updateTaskState(state, payload: Task) {
-        state.tasks = state.tasks.map(task => {
-            if (task.id === payload.id) {
-                task.state = payload.state;
+        state.tasks = state.tasks.map(Task => {
+            if (Task.id === payload.id) {
+                Task.state = payload.state;
             }
-            return task;
+            return Task;
         });
     }*/
 };

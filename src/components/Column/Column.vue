@@ -10,7 +10,7 @@
 
 <script lang="ts">
     import {Component, Prop, Vue} from "vue-property-decorator";
-    import Task from "@/components/task/Task.vue"
+    import Task from "@/components/Task/Task.vue"
 
     @Component({
         components: {Task}
