@@ -15,7 +15,9 @@ export const mutations: MutationTree<TasksState> = {
         state.tasks = [...state.tasks.filter(task => task.id !== taskId)];
     },
     updateTaskState(state, payload: Task) {
+        // @ts-ignore
         state.tasks = [...state.tasks.filter(task => task.id !== payload.id)];
+        // @ts-ignore
         state.tasks = [...state.tasks, payload];
     }
 };
