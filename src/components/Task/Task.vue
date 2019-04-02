@@ -36,8 +36,7 @@
         }
 
         doUpdateTaskState(value: number) {
-            //this.state += value;
-            //this.updateTaskState(this);
+            this.updateTaskState({id: this.id, state: this.state + value});
         }
     }
 </script>

@@ -14,12 +14,8 @@ export const mutations: MutationTree<TasksState> = {
     deleteTask(state, taskId: string) {
         state.tasks = [...state.tasks.filter(task => task.id !== taskId)];
     },
-    /*updateTaskState(state, payload: Task) {
-        state.tasks = state.tasks.map(Task => {
-            if (Task.id === payload.id) {
-                Task.state = payload.state;
-            }
-            return Task;
-        });
-    }*/
+    updateTaskState(state, payload: Task) {
+        state.tasks = [...state.tasks.filter(task => task.id !== payload.id)];
+        state.tasks = [...state.tasks, payload];
+    }
 };

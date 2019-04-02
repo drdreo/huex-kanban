@@ -69,9 +69,22 @@ export const actions: ActionTree<TasksState, RootState> = {
         const response = await graphqlClient.mutate({
             mutation: gql`
             mutation {
-                updateTaskState(where: {id: "${payload.id}"})
+                updateTask(
+                    data: {state: ${payload.state}}
+                    where: {id: "${payload.id}"}
+                )
+                {
+                    id
+                    name
+                    description
+                    state
+                    project {
+                        id
+                    }
+                }
             }
             `,
         });
+        commit('updateTaskState', response.data.updateTask);
     }
 };
