@@ -1,7 +1,10 @@
 <template>
-    <li class="changelog-view__listItem">
-        <span>{{description}} <small>-{{ createdAt.toString() }}</small></span>
-    </li>
+    <div class="changelog-entry">
+        <small class="changelog-entry__date">{{ formattedDate }}: </small>
+        <span>
+            {{description}}
+        </span>
+    </div>
 </template>
 
 <script lang="ts">
@@ -14,6 +17,12 @@
 
         @Prop()
         createdAt!: Date;
+
+        private formattedDate: string;
+
+        created() {
+            this.formattedDate = new Date(this.createdAt).toLocaleString();
+        }
     }
 </script>
 

@@ -5,10 +5,8 @@
         <!--        </router-link>-->
         <div class="changelog-view__container">
             <h1 class="changelog-view__header">Project Changelog</h1>
-            <ul class="changelog-view__changeList">
-                <change-log-entry :key="change.id" :description="change.description" :createdAt="change.createdAt"
-                                  v-for="change in this.changes.changes"></change-log-entry>
-            </ul>
+            <change-log-entry :key="change.id" :description="change.description" :createdAt="change.createdAt"
+                              v-for="change in this.changes.changes"></change-log-entry>
         </div>
     </div>
 </template>
@@ -31,8 +29,6 @@
         created() {
             this.projectId = this.$route.params.id;
             this.getChanges(this.projectId);
-
-            console.log(this.changes.changes);
         }
     }
 

@@ -17,7 +17,7 @@ export const actions: ActionTree<ChangeLogState, RootState> = {
         }
       `,
         });
-        commit('setChanges', response.data.getChanges);
+        commit('setChanges', response.data.changes);
     },
     async addChange({commit}, payload) {
         const response = await graphqlClient.mutate({
