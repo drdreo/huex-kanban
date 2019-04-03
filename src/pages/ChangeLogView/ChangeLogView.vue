@@ -1,10 +1,13 @@
 <template>
     <div class="changelog-view">
-        <!--        <router-link :to="{name: 'board', params: { id } }" tag="div">-->
-        <!--            <h1>back</h1>-->
-        <!--        </router-link>-->
+
         <div class="changelog-view__container">
-            <h1 class="changelog-view__header">Project Changelog</h1>
+            <div>
+                <router-link :to="{name: 'board', params: { projectId } }" tag="div">
+                    <button>back</button>
+                </router-link>
+                <h1 class="changelog-view__header">Project Changelog</h1>
+            </div>
             <change-log-entry :key="change.id" :description="change.description" :createdAt="change.createdAt"
                               v-for="change in this.changes.changes"></change-log-entry>
         </div>
