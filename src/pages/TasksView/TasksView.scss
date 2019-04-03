@@ -1,0 +1,11 @@
+.tasks-view {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  &__column-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    height: 80%;
+  }
+}
