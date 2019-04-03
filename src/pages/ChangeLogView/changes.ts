@@ -4,11 +4,9 @@ import {mutations} from './mutations';
 import {RootState} from '@/store';
 
 export interface Change {
-    id: number;
-    changeType: string;
-    editedObject: string;
-    destination?: string;   // Only needed when moving a Task to another state (e.g. destination = "In Progress")
-    created: string;
+    id: string;
+    description: string;
+    createdAt: Date;
 }
 
 export interface ChangeLogState {

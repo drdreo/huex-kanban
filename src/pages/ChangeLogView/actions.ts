@@ -8,30 +8,13 @@ export const actions: ActionTree<ChangeLogState, RootState> = {
     async getChanges({commit}, payload) {
         const response = await graphqlClient.query({
             query: gql`
-       {
-          changes(
-              orderBy: createdAt_DESC,
-              where: 
-              {
-                task: 
-                {
-                    project: 
-                    {
-                        id: "${payload}"
-                    }
-                }
-              }
-          ) 
-          {
+        {
+          changes(orderBy: createdAt_DESC, where: {project: {id: "${payload}"}}) {
             id
-            changeType
-            taskState
+            description
             createdAt
-            task {
-                name
-            }
           }
-       }
+        }
       `,
         });
         commit('setChanges', response.data.getChanges);
@@ -42,33 +25,18 @@ export const actions: ActionTree<ChangeLogState, RootState> = {
                mutation {
                   createChange(
                     data: {
-                        changeType: "${payload.changeType}",
-                        task: {
-                            connect: { id: "${payload.taskId}" }
+                        description: "${payload.description}",
+                        project: {
+                            connect: { id: "${payload.projectId}" }
                         }
                     }
                    ) 
+                   {                  
+                      id         
+                  }
                }
       `,
         });
         commit('addChange', response.data.addChange);
-    },
-    async addStateChange({commit}, payload) {
-        const response = await graphqlClient.mutate({
-            mutation: gql`
-               mutation {
-                  createChange(
-                    data: {
-                        changeType: "${payload.changeType}",
-                        taskState: "${payload.taskState}", 
-                        task: {
-                            connect: { id: "${payload.taskId}" }
-                        }
-                    }
-                   ) 
-               }
-      `,
-        });
-        commit('addStateChange', response.data.addStateChange);
     },
 };

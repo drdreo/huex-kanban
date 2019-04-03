@@ -18,6 +18,7 @@
     import {Component, Vue} from "vue-property-decorator";
     import Column from "@/components/Column/Column.vue";
     import {TasksState} from "@/pages/TasksView/tasks";
+    import {taskStateEnum} from "@/taskStateEnum";
 
     @Component({
         components: {Column}
@@ -49,18 +50,12 @@
                     state: taskStateEnum.ToDo,
                     project: this.projectId
                 });
+                this.addChange({
+                    description: `The task [${this.newTaskName}] has been created.`,
+                    projectId: this.projectId
+                });
                 this.newTaskName = '';
                 this.newTaskDescription = '';
-                this.doAddChange(response.id);
-            }
-        }
-
-        doAddChange(taskId: string) {
-            if(taskId) {
-                this.addChange({
-                    changeType: changeTypeEnum.TaskCreated,
-                    taskId: taskId
-                });
             }
         }
     }
