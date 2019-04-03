@@ -18,6 +18,7 @@
     import {Component, Vue} from "vue-property-decorator";
     import Column from "@/components/Column/Column.vue";
     import {TasksState} from "@/pages/TasksView/tasks";
+    import {taskStateEnum} from "@/taskStateEnum";
 
     @Component({
         components: {Column}
@@ -26,6 +27,7 @@
         @State tasks!: TasksState;
         @Action("getTasks") getTasks: any;
         @Action("createTask") createTask: any;
+        @Action("addChange") addChange: any;
 
         private projectId!: string;
         private newTaskName = '';
@@ -42,11 +44,15 @@
 
         doCreateTask() {
             if (this.newTaskName && this.newTaskDescription) {
-                this.createTask({
+                const response= this.createTask({
                     name: this.newTaskName,
                     description: this.newTaskDescription,
-                    state: 1,
+                    state: taskStateEnum.ToDo,
                     project: this.projectId
+                });
+                this.addChange({
+                    description: `The task [${this.newTaskName}] has been created.`,
+                    projectId: this.projectId
                 });
                 this.newTaskName = '';
                 this.newTaskDescription = '';

@@ -1,8 +1,10 @@
 <template>
-    <li class="changelog-view__listItem">
-        <span v-if="object2"><b>{{object1}}</b> {{ actionType }} {{ object2 }}. <small>-{{ created }}</small></span>
-        <span v-else><b>{{object1}}</b> {{ actionType }}. <small>-{{ created }}</small></span>
-    </li>
+    <div class="changelog-entry">
+        <small class="changelog-entry__date">{{ formattedDate }}: </small>
+        <span>
+            {{description}}
+        </span>
+    </div>
 </template>
 
 <script lang="ts">
@@ -11,16 +13,16 @@
     @Component
     export default class ChangeLogEntry extends Vue {
         @Prop()
-        actionType!: string;
+        description!: string;
 
         @Prop()
-        object1!: string;
+        createdAt!: Date;
 
-        @Prop()
-        object2?: string;
+        private formattedDate: string;
 
-        @Prop()
-        created!: string;
+        created() {
+            this.formattedDate = new Date(this.createdAt).toLocaleString();
+        }
     }
 </script>
 

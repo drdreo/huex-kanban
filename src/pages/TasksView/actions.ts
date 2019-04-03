@@ -86,5 +86,5 @@ export const actions: ActionTree<TasksState, RootState> = {
             `,
         });
         commit('updateTaskState', response.data.updateTask);
-    }
+    },
 };
