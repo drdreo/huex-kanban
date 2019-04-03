@@ -1,8 +1,6 @@
 enum changeTypeEnum {
-    ProjectCreated = 1,
-    ProjectDeleted = 2,
-    TaskCreated = 3,
-    TaskDeleted = 4,
-    TaskEdited = 5,
-    TaskMoved = 6
+    TaskCreated = 1,    // Creating a new task
+    TaskDeleted = 2,    // Deleting a task
+    TaskEdited = 3,     // Editing title or description of a task
+    TaskMoved = 4       // Moving a task from done to in progress
 }

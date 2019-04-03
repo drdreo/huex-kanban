@@ -26,6 +26,7 @@
         @State tasks!: TasksState;
         @Action("getTasks") getTasks: any;
         @Action("createTask") createTask: any;
+        @Action("addChange") addChange: any;
 
         private projectId!: string;
         private newTaskName = '';
@@ -42,14 +43,24 @@
 
         doCreateTask() {
             if (this.newTaskName && this.newTaskDescription) {
-                this.createTask({
+                const response= this.createTask({
                     name: this.newTaskName,
                     description: this.newTaskDescription,
-                    state: 1,
+                    state: taskStateEnum.ToDo,
                     project: this.projectId
                 });
                 this.newTaskName = '';
                 this.newTaskDescription = '';
+                this.doAddChange(response.id);
+            }
+        }
+
+        doAddChange(taskId: string) {
+            if(taskId) {
+                this.addChange({
+                    changeType: changeTypeEnum.TaskCreated,
+                    taskId: taskId
+                });
             }
         }
     }

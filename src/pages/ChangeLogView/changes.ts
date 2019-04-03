@@ -3,17 +3,11 @@ import {actions} from './actions';
 import {mutations} from './mutations';
 import {RootState} from '@/store';
 
-export interface ChangeLog {
-    projectId: string;
-    projectName: string;
-    changes: Change[];
-}
-
 export interface Change {
     id: number;
     changeType: string;
     editedObject: string;
-    destination?: string;
+    destination?: string;   // Only needed when moving a Task to another state (e.g. destination = "In Progress")
     created: string;
 }
 
@@ -25,7 +19,7 @@ export const state: ChangeLogState = {
     changes: []
 };
 
-export const changelogs: Module<ChangeLogState, RootState> = {
+export const changes: Module<ChangeLogState, RootState> = {
     state,
     actions,
     mutations

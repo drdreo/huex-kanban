@@ -2,7 +2,7 @@ import {Vue} from 'vue-property-decorator';
 
 import Vuex, {StoreOptions} from 'vuex';
 import {projects} from '@/pages/ProjectView/projects';
-import {changelogs} from '@/pages/ChangeLogView/changelogs';
+import {changes} from '@/pages/ChangeLogView/changes';
 import {tasks} from "@/pages/TasksView/tasks";
 
 Vue.use(Vuex);
@@ -17,7 +17,7 @@ const store: StoreOptions<RootState> = {
     },
     modules: {
         projects,
-        changelog: changelogs,
+        changes,
         tasks
     }
 };

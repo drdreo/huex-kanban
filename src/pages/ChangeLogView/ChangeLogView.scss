@@ -17,12 +17,13 @@ $yellow: #D0BB57;
   }
 
   &__container {
-    width: 30%;
+    width: 35%;
     margin: auto;
     background-color: #eeeeee;
     border-radius: 10px;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
     height: 100%;
+    padding-left: 1%;
   }
 
   &__changeList {

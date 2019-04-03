@@ -1,7 +1,7 @@
 <template>
     <li class="changelog-view__listItem">
-        <span v-if="destination"><b>{{editedObject}}</b> {{ actionType }} {{ destination }}. <small>-{{ created }}</small></span>
-        <span v-else><b>{{editedObject}}</b> {{ actionType }}. <small>-{{ created }}</small></span>
+        <span v-if="destination"><b>{{editedObject}}</b> {{ changeType }} {{ destination }}. <small>-{{ created }}</small></span>
+        <span v-else><b>{{editedObject}}</b> {{ changeType }}. <small>-{{ created }}</small></span>
     </li>
 </template>
 
@@ -11,7 +11,7 @@
     @Component
     export default class ChangeLogEntry extends Vue {
         @Prop()
-        actionType!: string;
+        changeType!: string;
 
         @Prop()
         editedObject!: string;

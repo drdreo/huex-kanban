@@ -2,7 +2,6 @@
     <div class="task">
         <div class="task__header">
             <h3 class="task__heading">{{ name }}</h3>
-
         </div>
         <hr>
         <div class="task__content">
@@ -30,13 +29,24 @@
 
         @Action("deleteTask") deleteTask: any;
         @Action("updateTaskState") updateTaskState: any;
+        @Action("addChange") addChange: any;
+        @Action("addStateChange") addStateChange: any;
 
         doDeleteTask() {
             this.deleteTask(this);
+            this.addChange({
+                changeType: changeTypeEnum.TaskDeleted,
+                taskId: this.id
+            });
         }
 
         doUpdateTaskState(value: number) {
             this.updateTaskState({id: this.id, state: this.state + value});
+            this.addStateChange({
+                changeType: changeTypeEnum.TaskMoved,
+                taskState: this.state,
+                taskId: this.id
+            });
         }
     }
 </script>
