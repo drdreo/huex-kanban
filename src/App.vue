@@ -7,7 +7,7 @@
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
     import VueRouter from "vue-router";
-    import HelloWorld from "@/components/HelloWorld.vue";
+    import TasksView from "@/pages/TasksView/TasksView.vue";
     import ProjectView from "@/pages/ProjectView/ProjectView.vue";
     import store from "@/store";
     import ChangeLogView from "@/pages/ChangeLogView/ChangeLogView.vue";
@@ -16,7 +16,7 @@
 
     const routes = [
         {path: "/", component: ProjectView},
-        {path: "/project/:id/board", name: "board", props: true, component: HelloWorld},
+        {path: "/project/:id/board", name: "board", props: true, component: TasksView},
         {path: "/project/:id/changelog", name: "changelog", props: true, component: ChangeLogView}
 
     ];
@@ -28,6 +28,7 @@
     @Component({
         components: {
             ProjectView,
+            TasksView
         },
         router,
         store
