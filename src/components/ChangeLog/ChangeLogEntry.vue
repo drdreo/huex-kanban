@@ -1,7 +1,7 @@
 <template>
     <li class="changelog-view__listItem">
-        <span v-if="object2"><b>{{object1}}</b> {{ actionType }} {{ object2 }}. <small>-{{ created }}</small></span>
-        <span v-else><b>{{object1}}</b> {{ actionType }}. <small>-{{ created }}</small></span>
+        <span v-if="destination"><b>{{editedObject}}</b> {{ actionType }} {{ destination }}. <small>-{{ created }}</small></span>
+        <span v-else><b>{{editedObject}}</b> {{ actionType }}. <small>-{{ created }}</small></span>
     </li>
 </template>
 
@@ -14,10 +14,10 @@
         actionType!: string;
 
         @Prop()
-        object1!: string;
+        editedObject!: string;
 
         @Prop()
-        object2?: string;
+        destination?: string;
 
         @Prop()
         created!: string;

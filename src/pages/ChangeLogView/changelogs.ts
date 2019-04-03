@@ -11,9 +11,9 @@ export interface ChangeLog {
 
 export interface Change {
     id: number;
-    actionType: string;
-    object1: string;
-    object2?: string;
+    changeType: string;
+    editedObject: string;
+    destination?: string;
     created: string;
 }
 
