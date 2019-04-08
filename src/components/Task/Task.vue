@@ -52,7 +52,7 @@
             this.updateTaskState({id: this.id, state: this.state + value});
 
             this.addChange({
-                description: `The task [${this.name}] has been moved to ${this.convertTaskStateToString(this.state)}.`,
+                description: `The task [${this.name}] has been moved to ${this.convertTaskStateToString(this.state + value)}.`,
                 projectId: this.projectId
             });
         }

@@ -1,7 +1,7 @@
 <template>
     <div class="changelog-view">
 
-        <div class="changelog-view__container">
+        <div class="changelog-view__container scrollbar">
             <div>
                 <router-link :to="{name: 'board', params: { projectId } }" tag="div">
                     <button>back</button>
