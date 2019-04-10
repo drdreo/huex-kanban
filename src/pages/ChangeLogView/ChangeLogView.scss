@@ -26,6 +26,23 @@ $yellow: #D0BB57;
     padding-left: 1%;
   }
 
+  i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  &__back {
+    color: #000000;
+    font-size: 22px;
+  }
+
   .scrollbar
   {
     background: #F5F5F5;
