@@ -20,16 +20,16 @@ describe('ChangeLogEntry.vue', () => {
 
     beforeEach(() => {
         state = {
-            projects: [
-                {id: 1, name: 'test-project-1', tasks: [{name: 'Task1'}]},
-                {id: 2, name: 'test-project-2', tasks: [{name: 'Task1'}]}
+            changes: [
+                {id: 1, description: 'Task created', createdAt: new Date()},
+                {id: 2, description: 'Task deleted', createdAt: new Date()}
             ]
         };
 
         store = new Vuex.Store({
             //@ts-ignore
             modules: {
-                projects: {
+                changes: {
                     state
                 }
             }
