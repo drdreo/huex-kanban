@@ -3,8 +3,8 @@
 
         <div class="changelog-view__container scrollbar">
             <div>
-                <router-link :to="{name: 'board', params: { projectId } }" tag="div">
-                    <button>back</button>
+                <router-link :to="{name: 'board', params: { projectId } }">
+                    <a class="changelog-view__back"> Back to kanban board</a>
                 </router-link>
                 <h1 class="changelog-view__header">Project Changelog</h1>
             </div>
