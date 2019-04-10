@@ -1,5 +1,4 @@
-import {shallowMount, RouterLinkStub, createLocalVue} from '@vue/test-utils';
-import Project from '@/components/Project/Project.vue';
+import {shallowMount, createLocalVue} from '@vue/test-utils';
 import Vuex from 'vuex';
 import ChangeLogEntry from "@/components/ChangeLog/ChangeLogEntry.vue";
 

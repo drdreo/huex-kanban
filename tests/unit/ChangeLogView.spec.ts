@@ -1,6 +1,4 @@
-/* tslint:disable */
-
-import {shallowMount, createLocalVue, RouterLinkStub} from '@vue/test-utils';
+import {shallowMount, createLocalVue} from '@vue/test-utils';
 import Vuex from 'vuex';
 import ChangeLogView from "@/pages/ChangeLogView/ChangeLogView.vue";
 
