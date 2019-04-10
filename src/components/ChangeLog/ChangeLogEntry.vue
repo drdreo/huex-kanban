@@ -1,7 +1,7 @@
 <template>
     <div class="changelog-entry">
         <small class="changelog-entry__date">{{ formattedDate }}: </small>
-        <span>
+        <span class="changelog-entry__description">
             {{description}}
         </span>
     </div>
