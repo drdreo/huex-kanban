@@ -1,9 +1,13 @@
 # huex-kanban
 
-We create a kanban board using Vue.js.
-Editable task cards and categories. Changelog page.
+We created a kanban board using Vue.js.
+Create Projects and assign Tasks. See every change inside the changelog.
 Developed by Andreas Hahn, David Holzmann and Rafael Schrenk.
 
+
+## URL
+Hosted on netlify.
+https://huexkanban.netlify.com
 
 ## Project setup
 ```
@@ -34,6 +38,3 @@ npm run lint
 ```
 vue ui
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
